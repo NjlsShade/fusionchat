@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>FusionChat</title>
+		<link rel="stylesheet" href="css/core.css" />
+		<script src="js/core.js"></script>
+	</head>
+	<body>
+		<div id="titlebar">
+
+			<div id="title">FusionChat</div>
+
+			<img src="img/fox.jpg" width="32px" height="32px"></img>
+
+			<!--Title Bar Buttons-->
+			<div id="titleBtns">
+
+				<a class="red_down" id="close-btn" onclick="closeBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="icon-download"></i>&nbsp;X&nbsp;
+				</a>
+
+				<a class="red_down" id="max-btn" onclick="maxBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="icon-download"></i>&nbsp;[ ]&nbsp;
+				</a>
+
+				<a class="red_down" id="min-btn" onclick="miniBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="icon-download"></i>&nbsp;_&nbsp;
+				</a>
+
+			</div>
+
+		</div>
+		Hey!
+	</body>
+	<script>
+		require('./renderer.js');
+	</script>
+</html>

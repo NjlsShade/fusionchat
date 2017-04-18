@@ -1,0 +1,42 @@
+body {
+ padding: 0px;
+ margin: 0px;
+}
+
+#titlebar {
+ -webkit-app-region: drag;
+ height: 34px;
+ background-color: #000;
+ padding: none;
+ margin: 0px;
+}
+
+#title {
+ position: fixed;
+ color: #fff;
+ top: 8px;
+ left: 38px;
+}
+
+#titleBtns {
+ -webkit-app-region: no-drag;
+ position: fixed;
+ top: 0px;
+ right: 0px;
+}
+
+.red_down {
+	font-family: arial;
+	color: #fff;
+	font-size: 16px;
+	padding: 8px;
+	background: #000;
+	text-decoration: none;
+	border-left: solid #fff 1px;
+}
+.red_down:hover {
+	background: #ff0000;
+	text-decoration: none;
+	color: #fff;
+	border-left: solid #fff 1px;
+}
