@@ -1,11 +1,13 @@
 body {
  padding: 0px;
  margin: 0px;
+ height:100%;
+width:100%
 }
 
 #titlebar {
  -webkit-app-region: drag;
- height: 34px;
+ height: 32px;
  background-color: #000;
  padding: none;
  margin: 0px;
@@ -14,8 +16,8 @@ body {
 #title {
  position: fixed;
  color: #fff;
- top: 8px;
- left: 38px;
+ top: 6px;
+ left: 32px;
 }
 
 #titleBtns {
@@ -25,18 +27,78 @@ body {
  right: 0px;
 }
 
-.red_down {
+.main_button {
 	font-family: arial;
 	color: #fff;
 	font-size: 16px;
-	padding: 8px;
+	padding: 4px;
 	background: #000;
 	text-decoration: none;
 	border-left: solid #fff 1px;
 }
-.red_down:hover {
+/**.main_button:hover {
 	background: #ff0000;
 	text-decoration: none;
 	color: #fff;
 	border-left: solid #fff 1px;
+	padding: 4px;
+}**/
+
+/** Disable text selection **/
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+input, button, textarea, :focus {
+    outline: none; // You should add some other style for :focus to help UX/a11y
+}
+
+/** Disable content dragging **/
+a:not([draggable=true]), img:not([draggable=true]) {
+    -webkit-user-drag: none;
+    user-drag: none; /* Technically not supported in Electron yet */
+}
+a[href^="http://"],
+a[href^="https://"],
+a[href^="ftp://"] {
+    -webkit-user-drag: auto;
+    user-drag: auto; /* Technically not supported in Electron yet */
+}
+
+.login-place {
+    width: 600px;
+    height: 100px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+	color: #000;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	border-bottom: 1px solid #039be5;
+	box-shadow: 0 1px 0 0 #fff;
+}
+
+/* label focus color */
+.input-field input[type=password]:focus + label {
+	color: #000;
+}
+
+/* label underline focus color */
+.input-field input[type=password]:focus {
+	border-bottom: 1px solid #039be5;
+	box-shadow: 0 1px 0 0 #fff;
 }

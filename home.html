@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>FusionChat</title>
+		<link href="css/icon.css" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="css/core.css" />
+		<script src="js/core.js"></script>
+		<script src="js/hammer.min.js" onload="window.Hammer = module.exports;"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.js"></script>
+
+		<div id="titlebar">
+
+			<div id="title">FusionChat</div>
+
+			<img src="img/fox.jpg" width="16px" height="16px" style="margin: 8px;"></img>
+
+			<!--Title Bar Buttons-->
+			<div id="titleBtns">
+
+				<a class="main_button" onclick="closeBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="icon-download"></i>&nbsp;X&nbsp;
+				</a>
+
+				<a class="main_button" onclick="maxBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="icon-download"></i>&nbsp;[ ]&nbsp;
+				</a>
+
+				<a class="main_button" onclick="miniBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="icon-download"></i>&nbsp;_&nbsp;
+				</a>
+
+			</div>
+
+		</div>
+		<nav class="nav-extended green">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Menu</a>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a href="sass.html">Sass</a></li>
+					<li><a href="badges.html">Components</a></li>
+					<li><a href="collapsible.html">JavaScript</a></li>
+				</ul>
+			</div>
+			<div class="nav-content">
+				<ul class="tabs tabs-transparent">
+					<li class="tab"><a href="#test1" style="cursor:default">Account</a></li>
+					<li class="tab"><a class="active" href="#test2" style="cursor:default">Test 2</a></li>
+					<li class="tab"><a href="#test3" style="cursor:default">Test 3</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="test1" class="col s12">Cool Stuffs!</div>
+		<div id="test2" class="col s12">Test 2</div>
+		<div id="test3" class="col s12">Test 3</div>
+	</body>
+	<script>
+		require('./renderer.js');
+	</script>
+</html>

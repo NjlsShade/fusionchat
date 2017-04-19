@@ -1,6 +1,6 @@
 {
   "name": "FusionChat",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -9,6 +9,8 @@
   "author": "Shade",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^1.6.2"
+    "electron": "^1.6.2",
+    "material-design-icons": "^3.0.1",
+    "materialize-css": "^0.98.2"
   }
 }

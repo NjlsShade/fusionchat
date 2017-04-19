@@ -1,37 +1,144 @@
 <html>
 	<head>
 		<title>FusionChat</title>
-		<link rel="stylesheet" href="css/core.css" />
+		<link href="css/icon.css" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="css/material-icons.css" />
+		<link type="text/css" rel="stylesheet" href="css/core.css" />
 		<script src="js/core.js"></script>
+		<script src="js/hammer.min.js" onload="window.Hammer = module.exports;"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 	<body>
-		<div id="titlebar">
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.js"></script>
+
+		<div id="titlebar" style="position: relative; z-index: 9999;">
 
 			<div id="title">FusionChat</div>
 
-			<img src="img/fox.jpg" width="32px" height="32px"></img>
+			<!-- App Icon -->
+			<img src="img/fox.jpg" width="16px" height="16px" style="margin: 8px;"></img>
 
 			<!--Title Bar Buttons-->
 			<div id="titleBtns">
 
-				<a class="red_down" id="close-btn" onclick="closeBtn()" style="float: right; cursor: default; outline: none;">
-					<i class="icon-download"></i>&nbsp;X&nbsp;
+				<a class="main_button" onclick="closeBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="material-icons">close</i>
 				</a>
 
-				<a class="red_down" id="max-btn" onclick="maxBtn()" style="float: right; cursor: default; outline: none;">
-					<i class="icon-download"></i>&nbsp;[ ]&nbsp;
+				<a class="main_button" onclick="maxBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="material-icons">fullscreen</i>
 				</a>
 
-				<a class="red_down" id="min-btn" onclick="miniBtn()" style="float: right; cursor: default; outline: none;">
-					<i class="icon-download"></i>&nbsp;_&nbsp;
+				<a class="main_button" onclick="miniBtn()" style="float: right; cursor: default; outline: none;">
+					<i class="material-icons">expand_more</i>
 				</a>
 
 			</div>
 
 		</div>
-		Hey!
+
+		<!-- Main Navigation bar -->
+		<nav class="nav-extended green">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo" style="padding-left: 8px;">Menu</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse" style="cursor: default"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="#settings" onclick="openSettings(); closeNav();" style="cursor: default">Settings</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo" style="margin-top: 32px;">
+					<li><a href="#settings" onclick="openSettings(); closeNav();" style="cursor: default">Settings</a></li>
+				</ul>
+			</div>
+			<div class="nav-content">
+				<ul class="tabs tabs-transparent">
+					<li class="tab"><a class="active" href="#login" style="cursor: default">Login</a></li>
+					<li class="tab"><a href="#register" style="cursor: default">Register</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="login" class="col s12 login-place">
+			Login
+			<div class="row">
+				<div class="input-field col s6">
+						<input id="user" name="user" type="text" class="validate">
+						<label class="green-text" for="user">User</label>
+					</center>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="password" name="password" type="password" class="validate">
+					<label class="green-text" for="password">Password</label>
+				</div>
+			</div>
+			<a class="waves-effect waves-light blue btn" onclick="post()">Login</a>
+			<div id="status"></div>
+		</div>
+		<div id="register" class="col s12">Register</div>
+
+
+		<!-- Settings -->
+		<div id="settings" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<h4>Settings</h4>
+				<p>
+					<div style="float: left;">
+						<input type="checkbox" id="tray" />
+						<label for="tray">Show Tray Icon</label>
+
+						<br><br>
+
+						<input type="checkbox" id="sound" />
+						<label for="sound">Notification Sound</label>
+					</div>
+
+					<div class="input-field col s12" style="width: 256px; float: right;">
+						<select>
+							<option value="" disabled selected>Choose your option</option>
+							<option value="1">English</option>
+							<option value="2">Español</option>
+							<option value="3">中文</option>
+							<option value="4">русский</option>
+						</select>
+						<label>Materialize Select</label>
+					</div>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="tost()">Save</a>
+			</div>
+		</div>
 	</body>
 	<script>
 		require('./renderer.js');
+
+		// Close SideNav init
+		$(".button-collapse").sideNav();
+
+		// Language Select init
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+
+		// Open Settings Menu
+		function openSettings() {
+			$('.modal').modal();
+		}
+
+		// Close SideNav
+		function closeNav() {
+			$('.button-collapse').sideNav({
+				closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+			});
+		}
+
+		// Display toast
+		function tost() {
+			Materialize.toast('Settings Saved!', 4000)
+		}
 	</script>
 </html>
