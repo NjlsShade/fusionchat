@@ -5,6 +5,17 @@ body {
 width:100%
 }
 
+::-webkit-scrollbar {
+        background-color: #000;
+        width: .8em;
+}
+
+::-webkit-scrollbar-thumb:window-inactive,
+::-webkit-scrollbar-thumb {
+        background: green;
+	margin-top: 64px;
+}
+
 #titlebar {
  -webkit-app-region: drag;
  height: 32px;

@@ -6,6 +6,7 @@
 		<link type="text/css" rel="stylesheet" href="css/material-icons.css" />
 		<link type="text/css" rel="stylesheet" href="css/core.css" />
 		<script src="js/core.js"></script>
+		<script src="js/settings.js"></script>
 		<script src="js/hammer.min.js" onload="window.Hammer = module.exports;"></script>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -46,10 +47,10 @@
 				<a href="#" class="brand-logo" style="padding-left: 8px;">Menu</a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse" style="cursor: default"><i class="material-icons">menu</i></a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#settings" onclick="openSettings(); closeNav();" style="cursor: default">Settings</a></li>
+					<li><a href="#settings" onclick="openSettings();" style="cursor: default">Settings</a></li>
 				</ul>
 				<ul class="side-nav" id="mobile-demo" style="margin-top: 32px;">
-					<li><a href="#settings" onclick="openSettings(); closeNav();" style="cursor: default">Settings</a></li>
+					<li><a href="#settings" onclick="openSettings();" style="cursor: default">Settings</a></li>
 				</ul>
 			</div>
 			<div class="nav-content">
@@ -59,25 +60,66 @@
 				</ul>
 			</div>
 		</nav>
+
+		<!-- Login page -->
 		<div id="login" class="col s12 login-place">
 			Login
 			<div class="row">
 				<div class="input-field col s6">
-						<input id="user" name="user" type="text" class="validate">
-						<label class="green-text" for="user">User</label>
+						<input id="login_email" name="login_email" type="text" class="validate">
+						<label class="green-text" for="login_email">Email</label>
 					</center>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input id="password" name="password" type="password" class="validate">
-					<label class="green-text" for="password">Password</label>
+					<input id="login_password" name="login_password" type="password" class="validate">
+					<label class="green-text" for="login_password">Password</label>
 				</div>
 			</div>
-			<a class="waves-effect waves-light blue btn" onclick="post()">Login</a>
-			<div id="status"></div>
+			<a class="waves-effect waves-light blue btn" onclick="login_post()">Login</a>
+			<div id="login_status"></div>
+
 		</div>
-		<div id="register" class="col s12">Register</div>
+
+		<!-- Register page -->
+		<div id="register" class="col s12 login-place">
+			Register
+			<div class="row">
+				<div class="input-field col s6">
+						<input id="reg_email" name="reg_email" type="text" class="validate">
+						<label class="green-text" for="reg_email">Email</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+						<input id="reg_user" name="reg_user" type="text" class="validate">
+						<label class="green-text" for="reg_user">Display Name</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s3">
+					<input id="reg_password" name="reg_password" type="password" class="validate">
+					<label class="green-text" for="reg_password">Password</label>
+				</div>
+				<div class="input-field col s3">
+					<input id="reg_con_password" name="reg_con_password" type="password" class="validate">
+					<label class="green-text" for="reg_con_password">Confirm Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<select id="reg_gender">
+						<option value="1">Custom</option>
+						<option value="2">Female</option>
+						<option value="3">Male</option>
+					</select>
+					<label>Gender</label>
+				</div>
+			</div>
+			<a class="waves-effect waves-light blue btn" onclick="reg_post()">Register</a>
+			<div id="reg_status" style="padding-bottom: 64px;"></div>
+		</div>
 
 
 		<!-- Settings -->
@@ -96,20 +138,19 @@
 					</div>
 
 					<div class="input-field col s12" style="width: 256px; float: right;">
-						<select>
-							<option value="" disabled selected>Choose your option</option>
-							<option value="1">English</option>
+						<select id="mySelect">
+							<option value="1" selected="selected">English</option>
 							<option value="2">Español</option>
 							<option value="3">中文</option>
 							<option value="4">русский</option>
 						</select>
-						<label>Materialize Select</label>
+						<label>Language</label>
 					</div>
 				</p>
 			</div>
 			<div class="modal-footer">
 				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="tost()">Save</a>
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="tost(); save();">Save</a>
 			</div>
 		</div>
 	</body>
@@ -119,14 +160,21 @@
 		// Close SideNav init
 		$(".button-collapse").sideNav();
 
-		// Language Select init
+		// Select init
 		$(document).ready(function() {
 			$('select').material_select();
 		});
 
+		// Why can't I put this in a function?!?!
+		settingsSet();
+
 		// Open Settings Menu
 		function openSettings() {
 			$('.modal').modal();
+			closeNav();
+
+			// Does not work...
+			settingsSet();
 		}
 
 		// Close SideNav
@@ -140,5 +188,6 @@
 		function tost() {
 			Materialize.toast('Settings Saved!', 4000)
 		}
+
 	</script>
 </html>
