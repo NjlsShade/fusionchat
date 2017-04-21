@@ -5,8 +5,8 @@
 		<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
 		<link type="text/css" rel="stylesheet" href="css/material-icons.css" />
 		<link type="text/css" rel="stylesheet" href="css/core.css" />
-		<script src="js/core.js"></script>
-		<script src="js/settings.js"></script>
+		<script type="text/javascript" src="js/core.js"></script>
+		<script type="text/javascript" src="js/settings.js"></script>
 		<script src="js/hammer.min.js" onload="window.Hammer = module.exports;"></script>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -139,10 +139,10 @@
 
 					<div class="input-field col s12" style="width: 256px; float: right;">
 						<select id="settings_lang">
-							<option value="1" selected="selected">English</option>
-							<option value="2">Español</option>
-							<option value="3">中文</option>
-							<option value="4">русский</option>
+							<option value="en" selected="selected">English</option>
+							<option value="es">Español</option>
+							<option value="zh">中文</option>
+							<option value="ru">русский</option>
 						</select>
 						<label>Language</label>
 					</div>
@@ -165,31 +165,11 @@
 			$('select').material_select();
 		});
 
-		// Why can't I put this in a function?!?!
-
-		// Open Settings Menu
-		function openSettings() {
-			$('.modal').modal();
-			closeNav();
-
-			// Does not work...
-		}
-
 		// Close SideNav
 		function closeNav() {
 			$('.button-collapse').sideNav({
 				closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
 			});
 		}
-
-		// Display toast
-		function tost() {
-			Materialize.toast('Settings Saved!', 4000)
-		}
-
-		function settingsSet() {
-			document.getElementById("settings_lang").selectedIndex = "3";
-		}
-
 	</script>
 </html>

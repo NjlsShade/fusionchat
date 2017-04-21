@@ -22,3 +22,30 @@ function off(){
 	    }
 	}
 }
+
+
+
+
+
+// Why can't I put this in a function?!?!
+
+// Open Settings Menu
+function openSettings() {
+	settingsSet();
+	$('.modal').modal();
+	closeNav();
+
+	// Does not work...
+}
+
+
+// Display toast
+function tost() {
+	Materialize.toast('Settings Saved!', 4000)
+}
+
+function settingsSet() {
+	var arg ='es';
+ $('#settings_lang').val(arg)
+}
+settingsSet();
