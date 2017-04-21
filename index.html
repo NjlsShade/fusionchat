@@ -138,7 +138,7 @@
 					</div>
 
 					<div class="input-field col s12" style="width: 256px; float: right;">
-						<select id="mySelect">
+						<select id="settings_lang">
 							<option value="1" selected="selected">English</option>
 							<option value="2">Español</option>
 							<option value="3">中文</option>
@@ -149,7 +149,7 @@
 				</p>
 			</div>
 			<div class="modal-footer">
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="settingsSet();">Cancel</a>
 				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="tost(); save();">Save</a>
 			</div>
 		</div>
@@ -166,7 +166,6 @@
 		});
 
 		// Why can't I put this in a function?!?!
-		settingsSet();
 
 		// Open Settings Menu
 		function openSettings() {
@@ -174,7 +173,6 @@
 			closeNav();
 
 			// Does not work...
-			settingsSet();
 		}
 
 		// Close SideNav
@@ -187,6 +185,10 @@
 		// Display toast
 		function tost() {
 			Materialize.toast('Settings Saved!', 4000)
+		}
+
+		function settingsSet() {
+			document.getElementById("settings_lang").selectedIndex = "3";
 		}
 
 	</script>
