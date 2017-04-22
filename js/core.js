@@ -1,5 +1,7 @@
 // Reqires
 const remote = require('electron').remote;
+const settings = require('electron-settings');
+const fs = require('fs');
 
 function closeBtn() {
 	const window = remote.getCurrentWindow();
@@ -18,26 +20,6 @@ function maxBtn() {
 	} else {
 		window.unmaximize();
 	}
-}
-
-//Settings Menu
-const BrowserWindow = require('electron').remote.BrowserWindow
-const path = require('path')
-const url = require('url');
-function settings() {
-	//Create Window
-	win = new BrowserWindow({width: 600, height: 500, frame: false});
-
-	//load index.html
-	win.loadURL(url.format({
-		pathname: path.join(__dirname, 'settings.html'),
-		protocol: 'file',
-		slashes: true
-	}));
-
-	win.on('closed', () => {
-		win = null
-	});
 }
 
 // Login Post
