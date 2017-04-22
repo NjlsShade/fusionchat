@@ -2,8 +2,9 @@
 	<head>
 		<title>FusionChat</title>
 		<link href="css/icon.css" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+
 		<link type="text/css" rel="stylesheet" href="css/material-icons.css" />
+		<link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
 		<link type="text/css" rel="stylesheet" href="css/core.css" />
 		<script type="text/javascript" src="js/core.js"></script>
 		<script type="text/javascript" src="js/settings.js"></script>
@@ -139,7 +140,7 @@
 
 					<div class="input-field col s12" style="width: 256px; float: right;">
 						<select id="settings_lang">
-							<option value="en" selected="selected">English</option>
+							<option value="en">English</option>
 							<option value="es">Español</option>
 							<option value="zh">中文</option>
 							<option value="ru">русский</option>
@@ -150,7 +151,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="settingsSet();">Cancel</a>
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="tost(); save();">Save</a>
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="save();">Save</a>
 			</div>
 		</div>
 	</body>
@@ -165,11 +166,5 @@
 			$('select').material_select();
 		});
 
-		// Close SideNav
-		function closeNav() {
-			$('.button-collapse').sideNav({
-				closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-			});
-		}
 	</script>
 </html>

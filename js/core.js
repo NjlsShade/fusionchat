@@ -89,3 +89,11 @@ function reg_post(){
 	hr.send(vars); // Actually execute the request
 	document.getElementById("reg_status").innerHTML = "processing...";
 }
+
+
+// Close SideNav
+function closeNav() {
+	$('.button-collapse').sideNav({
+		closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+	});
+}
