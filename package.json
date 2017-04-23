@@ -1,7 +1,7 @@
 {
   "name": "FusionChat",
   "version": "0.0.5",
-  "description": "",
+  "description": "Chat Client",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"

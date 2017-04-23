@@ -22,6 +22,19 @@ function maxBtn() {
 	}
 }
 
+// Close SideNav
+function closeNav() {
+	$('.button-collapse').sideNav({
+		closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+	});
+}
+
+
+//-----------
+// NETWORKING
+//-----------
+
+
 // Login Post
 function login_post(){
 	// Create our XMLHttpRequest object
@@ -70,12 +83,4 @@ function reg_post(){
 	// Send the data to PHP now... and wait for response to update the status div
 	hr.send(vars); // Actually execute the request
 	document.getElementById("reg_status").innerHTML = "processing...";
-}
-
-
-// Close SideNav
-function closeNav() {
-	$('.button-collapse').sideNav({
-		closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-	});
 }

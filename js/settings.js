@@ -1,18 +1,9 @@
-// Settings
-var data = fs.readFileSync('data/data.json', 'utf8');
+// Load saved settings
+function settingsSet(){
+	var lang = settings.get('main_settings.lang');
 
-// Display toast
-function toast() {
-	Materialize.toast('Settings Saved!', 4000)
-}
-
-// Save selected settings
-function save() {
-	var lang = document.getElementById('settings_lang').value;
-	fs.writeFileSync('test.txt', lang, 'utf8');
-
-	// Call tost
-	toast();
+	$('[id=settings_lang]').val( lang );
+	$('select').material_select();
 }
 
 // Open Settings Menu
@@ -22,18 +13,26 @@ function openSettings() {
 	settingsSet();
 }
 
-// Load saved settings
-function settingsSet(){
-	var lang = fs.readFileSync('test.txt', 'utf8');
-	$('[id=settings_lang]').val( lang );
-	$('select').material_select();
+// Save selected settings
+function saveLang() {
+	// Get selected language option
+	var lang = document.getElementById('settings_lang').value;
+
+	// Language setting
+	settings.set('main_settings', {
+	  lang: lang,
+	});
+
+	// Call tost
+	toast();
 }
 
-var lang_temp = fs.readFileSync('test.txt', 'utf8');
-settings.set('lang', {
-  first: 'Cosmo',
-  last: 'Kramer'
-});
+function saveTray() {
+	$('.set_tray').attr('type', 'saveold');
+}
 
-var yay = settings.get('lang.first');
-alert(yay);
+
+// Display toast
+function toast() {
+	Materialize.toast('Settings Saved!', 4000)
+}
