@@ -2,19 +2,11 @@ const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
 
-
-
-require('electron-debug')({showDevTools: true});
-
 let win;
-
-app.on('ready', () => {
-	win = new BrowserWindow();
-});
 
 function createWindow(){
 	//Create Window
-	win = new BrowserWindow({width: 800, minWidth: 640, height: 620, minHeight: 500, frame: true, devTools: true});
+	win = new BrowserWindow({width: 800, minWidth: 640, height: 620, minHeight: 500, frame: false, icon: 'img/fox.jpg'});
 
 	//load index.html
 	win.loadURL(url.format({
