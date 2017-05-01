@@ -34,9 +34,8 @@ function closeNav() {
 // NETWORKING
 //-----------
 
-
 // Login Post
-function login_post(){
+function loginPost() {
 	// Create our XMLHttpRequest object
 	var hr = new XMLHttpRequest();
 	// Create some variables we need to send to our PHP file
@@ -50,17 +49,29 @@ function login_post(){
 	// Access the onreadystatechange event for the XMLHttpRequest object
 	hr.onreadystatechange = function() {
 		if(hr.readyState == 4 && hr.status == 200) {
-			var return_data = hr.responseText;
-			document.getElementById("status").innerHTML = return_data;
+			var return_login = hr.responseText;
+			document.getElementById("login-status").innerHTML = return_login;
+			login();
 		}
 	}
 	// Send the data to PHP now... and wait for response to update the status div
 	hr.send(vars); // Actually execute the request
-	document.getElementById("login_status").innerHTML = "processing...";
+	document.getElementById("login-status").innerHTML = "processing...";
+}
+
+// Login
+function login() {
+	var login_state = document.getElementById("login-status").innerHTML;
+	if (login_state == 0) {
+		alert("Login failed")
+	} else {
+		alert("Login secsessful!")
+		remote.getCurrentWindow().loadURL('home.html');
+	}
 }
 
 // Register Post
-function reg_post(){
+function regPost() {
 	// Create our XMLHttpRequest object
 	var hr = new XMLHttpRequest();
 	// Create some variables we need to send to our PHP file
@@ -76,11 +87,15 @@ function reg_post(){
 	// Access the onreadystatechange event for the XMLHttpRequest object
 	hr.onreadystatechange = function() {
 		if(hr.readyState == 4 && hr.status == 200) {
-			var return_data = hr.responseText;
-			document.getElementById("reg_status").innerHTML = return_data;
+			var return_reg = hr.responseText;
+			document.getElementById("reg-status").innerHTML = return_reg;
 		}
 	}
 	// Send the data to PHP now... and wait for response to update the status div
 	hr.send(vars); // Actually execute the request
-	document.getElementById("reg_status").innerHTML = "processing...";
+	document.getElementById("reg-status").innerHTML = "processing...";
+}
+
+function register() {
+
 }

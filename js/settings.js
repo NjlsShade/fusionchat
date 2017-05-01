@@ -3,7 +3,7 @@
 //
 
 // Load saved lang
-function langSet(){
+function langSet() {
 	var lang = settings.get('main_settings.lang');
 
 	$('[id=settings_lang]').val( lang );
@@ -11,7 +11,7 @@ function langSet(){
 }
 
 // Load saved tray
-function traySet(){
+function traySet() {
 	if (settings.get('main_settings.tray') == "checked") {
 		$("input#tray").prop('checked', true);
 	} else {
@@ -19,7 +19,7 @@ function traySet(){
 	}
 }
 
-function soundSet(){
+function soundSet() {
 	if (settings.get('main_settings.sound') == "checked") {
 		$("input#sound").prop('checked', true);
 	} else {
@@ -27,7 +27,7 @@ function soundSet(){
 	}
 }
 
-function settingsSet(){
+function settingsSet() {
 	langSet();
 	traySet();
 	soundSet();

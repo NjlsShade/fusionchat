@@ -4,9 +4,9 @@ const url = require('url');
 
 let win;
 
-function createWindow(){
+function createWindow() {
 	//Create Window
-	win = new BrowserWindow({width: 800, minWidth: 640, height: 620, minHeight: 500, frame: false, icon: 'img/fox.jpg'});
+	win = new BrowserWindow({width: 800, minWidth: 640, height: 620, minHeight: 500, frame: true, icon: 'img/fox.jpg'});
 
 	//load index.html
 	win.loadURL(url.format({
@@ -25,7 +25,7 @@ app.on('ready', createWindow);
 //Exit Program
 app.on('window-all-closed', () => {
 	//Check if Mac
-	if(process.platform !== 'darwin'){
+	if(process.platform !== 'darwin') {
 		app.quit();
 	}
 });
