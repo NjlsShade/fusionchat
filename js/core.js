@@ -66,7 +66,11 @@ function login() {
 		alert("Login failed")
 	} else {
 		alert("Login secsessful!")
-		remote.getCurrentWindow().loadURL('home.html');
+		// screen
+		document.getElementById("loggedScreen").style.width = "100%";
+		document.getElementById("mainScreen").style.width = "0%";
+
+		//document.getElementById("myNav").style.width = "0%";
 	}
 }
 
