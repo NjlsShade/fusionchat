@@ -50,26 +50,30 @@
 			</div>
 		</div>
 
+		<!-- Side Nav slide out main -->
+		<ul class="side-nav" id="mobile-demo" style="margin-top: 32px;">
+			<li><a href="#settings" onclick="settingsOpen();" style="cursor: default">Settings</a></li>
+		</ul>
 
-		<!-- Main Navigation bar -->
-		<nav class="nav-extended green">
-			<div class="nav-wrapper">
-				<a href="#" class="brand-logo" style="padding-left: 8px;">Menu</a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse" style="cursor: default"><i class="material-icons">menu</i></a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="#settings" onclick="settingsOpen();" style="cursor: default">Settings</a></li>
-				</ul>
-				<ul class="side-nav" id="mobile-demo" style="margin-top: 32px;">
-					<li><a href="#settings" onclick="settingsOpen();" style="cursor: default">Settings</a></li>
-				</ul>
-			</div>
-			<div class="nav-content">
-				<ul class="tabs tabs-transparent">
-					<li class="tab"><a class="active" href="#login" style="cursor: default">Login</a></li>
-					<li class="tab"><a href="#register" style="cursor: default">Register</a></li>
-				</ul>
-			</div>
-		</nav>
+		<div id="mainScreen" class="main-overlay">
+
+			<div class="overlay-main-content">
+				<!-- Main Navigation bar -->
+				<nav class="nav-extended green">
+					<div class="nav-wrapper">
+						<a href="#" class="brand-logo" style="padding-left: 8px;">Menu</a>
+						<a href="#" data-activates="mobile-demo" class="button-collapse" style="cursor: default"><i class="material-icons">menu</i></a>
+						<ul id="nav-mobile" class="right hide-on-med-and-down">
+							<li><a href="#settings" onclick="settingsOpen();" style="cursor: default">Settings</a></li>
+						</ul>
+					</div>
+					<div class="nav-content">
+						<ul class="tabs tabs-transparent">
+							<li class="tab"><a class="active" href="#login" style="cursor: default">Login</a></li>
+							<li class="tab"><a href="#register" style="cursor: default">Register</a></li>
+						</ul>
+					</div>
+				</nav>
 
 
 				<!-- Login page -->
@@ -149,8 +153,8 @@
 				</ul>
 				<nav>
 					<div class="nav-wrapper green">
-						<a href="#!" class="brand-logo">Logo</a>
-						<ul class="right hide-on-med-and-down">
+						<a href="#!" class="left brand-logo">fusionchat</a>
+						<ul class="right">
 							<li><a href="sass.html">Sass</a></li>
 							<li><a href="badges.html">Components</a></li>
 							<!-- Dropdown Trigger -->

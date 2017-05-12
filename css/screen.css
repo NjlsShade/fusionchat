@@ -7,7 +7,7 @@
 	background: #fff;
 	overflow-x: hidden;
 	transition: 0.5s;
-	z-index: 9991;
+	z-index: 991;
 }
 
 .overlay-logged-content {
@@ -22,8 +22,7 @@
 	left: 0;
 	background: #fff;
 	overflow-x: hidden;
-	transition: 0.5s;
-	z-index: 9991;
+	z-index: 991;
 }
 
 .overlay-main-content {
