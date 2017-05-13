@@ -49,29 +49,24 @@ function loginPost() {
 	// Access the onreadystatechange event for the XMLHttpRequest object
 	hr.onreadystatechange = function() {
 		if(hr.readyState == 4 && hr.status == 200) {
-			var return_login = hr.responseText;
-			document.getElementById("login-status").innerHTML = return_login;
-			login();
+			var login_state = hr.responseText;
+			if (login_state == 0) {
+				alert("Login failed")
+			} else {
+				// Save login session
+				settings.set('account.sessid', login_state);
+
+				alert("Login secsessful!")
+
+				// screen
+				document.getElementById("loggedScreen").style.width = "100%";
+				document.getElementById("mainScreen").style.width = "0%";
+			}
 		}
 	}
 	// Send the data to PHP now... and wait for response to update the status div
 	hr.send(vars); // Actually execute the request
 	document.getElementById("login-status").innerHTML = "processing...";
-}
-
-// Login
-function login() {
-	var login_state = document.getElementById("login-status").innerHTML;
-	if (login_state == 0) {
-		alert("Login failed")
-	} else {
-		alert("Login secsessful!")
-		// screen
-		document.getElementById("loggedScreen").style.width = "100%";
-		document.getElementById("mainScreen").style.width = "0%";
-
-		//document.getElementById("myNav").style.width = "0%";
-	}
 }
 
 // Register Post
@@ -102,4 +97,33 @@ function regPost() {
 
 function register() {
 
+}
+
+function logoutPost() {
+	// Create our XMLHttpRequest object
+	var hr = new XMLHttpRequest();
+	// Create some variables we need to send to our PHP file
+	var url = "https://api.fusionchat.io/v1/";
+	var sessid = settings.get('account.sessid');
+	var vars = "logout="+sessid;
+	hr.open("POST", url, true);
+	// Set content type header information for sending url encoded variables in the request
+	hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	// Access the onreadystatechange event for the XMLHttpRequest object
+	hr.onreadystatechange = function() {
+		if(hr.readyState == 4 && hr.status == 200) {
+			var return_logout = hr.responseText;
+			if (return_logout == 1) {
+				document.getElementById("loggedScreen").style.width = "0%";
+				document.getElementById("mainScreen").style.width = "100%";
+				settings.delete('account.sessid');
+				alert('Logout secsessful!');
+			} else {
+				alert('No!');
+			}
+		}
+	}
+	// Send the data to PHP now... and wait for response to update the status div
+	hr.send(vars); // Actually execute the request
+	document.getElementById("login-status").innerHTML = "processing...";
 }
