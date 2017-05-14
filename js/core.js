@@ -99,6 +99,7 @@ function register() {
 
 }
 
+// Logout User
 function logoutPost() {
 	// Create our XMLHttpRequest object
 	var hr = new XMLHttpRequest();
@@ -128,10 +129,12 @@ function logoutPost() {
 	document.getElementById("login-status").innerHTML = "processing...";
 }
 
-
-function func() {
+// Load user notes
+function loadNotes() {
 	var ul = document.getElementById("notes");
 	var newLI = document.createElement("LI");
+	var noteTitle = "Note 1";
+	var noteBody = "This is a loaded note!"
 	ul.appendChild(newLI);
-	newLI.innerHTML = "<div class='collapsible-header'><i class='material-icons'>filter_drama</i>Note 1</div><div class='collapsible-body'><span>This is a loaded note!</span></div>";
+	newLI.innerHTML = "<div class='collapsible-header'><i class='material-icons'>filter_drama</i>"+noteTitle+"</div><div class='collapsible-body'><span>"+noteBody+"</span></div>";
 }
