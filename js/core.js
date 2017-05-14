@@ -127,3 +127,11 @@ function logoutPost() {
 	hr.send(vars); // Actually execute the request
 	document.getElementById("login-status").innerHTML = "processing...";
 }
+
+
+function func() {
+	var ul = document.getElementById("notes");
+	var newLI = document.createElement("LI");
+	ul.appendChild(newLI);
+	newLI.innerHTML = "<div class='collapsible-header'><i class='material-icons'>filter_drama</i>Note 1</div><div class='collapsible-body'><span>This is a loaded note!</span></div>";
+}
